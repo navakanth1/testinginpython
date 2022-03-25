@@ -1,3 +1,4 @@
+import sys
 import unittest
 
 
@@ -14,6 +15,7 @@ def checkdivisibleby7(x):
         return False
 
 class myevenorodd(unittest.TestCase):
+    @unittest.skip("skipped this test")
     def test_case_even_or_odd(self):
         result = check_even_or_odd(2)
         self.assertEqual("even", result)
@@ -23,10 +25,12 @@ class myevenorodd(unittest.TestCase):
         self.assertEqual("odd", result)
 
 class checkdivisible(unittest.TestCase):
+    @unittest.skipIf(sys.platform.startswith("win"),"requires not windos os")
     def test_case_check_divisible(self):
         result = checkdivisibleby7(21)
         self.assertTrue(result)
 
+    @unittest.skipUnless(sys.platform.startswith("darwin"), "requires not windos os")
     def test_case_check_divisible(self):
         result = checkdivisibleby7(2)
         self.assertFalse(result)
