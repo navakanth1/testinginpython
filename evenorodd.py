@@ -13,7 +13,13 @@ def checkdivisibleby7(x):
         return True
     else:
         return False
+myList = [1, 2, 3 , "nava", 56]
 
+
+class MyListChecker(unittest.TestCase):
+    def test_list(self):
+        element = 23
+        self.assertNotIn(element, myList)
 class myevenorodd(unittest.TestCase):
     @unittest.skip("skipped this test")
     def test_case_even_or_odd(self):
